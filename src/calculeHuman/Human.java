@@ -32,7 +32,9 @@ public class Human implements HumanFunctions{
     public void setBirthday(String birthday){
         this.birthday = birthday;
     }
-    public void calcularEdad(){
+    public void calcularEdad(int añoActual){
+        String[] partes = getBirthday().split("/");
+
 
     }
     public String esPesoIdeal(){
