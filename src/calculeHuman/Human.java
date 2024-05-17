@@ -32,7 +32,7 @@ public class Human implements HumanFunctions{
     public void setBirthday(String birthday){
         this.birthday = birthday;
     }
-    public void calcularEdad(String añoActual){
+    public String calcularEdad(String añoActual){
         int diaHoy = calculeDia(añoActual);
         int mesHoy = calculeMes(añoActual);
         int añoHoy = calculeAño(añoActual);
@@ -42,28 +42,31 @@ public class Human implements HumanFunctions{
         int yearBirth = calculeAño(getBirthday());
 
         int añoDelAño = añoHoy-yearBirth;
-        if(mesHoy>monthBirth && diaHoy > dayBirth){
-            System.out.println("Usted tiene "+ (añoDelAño-1) + " Años");
+        System.out.println("Año actual "+ añoHoy+ " Año cumple " + yearBirth);
+        if(mesHoy<=monthBirth && diaHoy <= dayBirth){
+            return "Usted tiene "+ (añoDelAño) + " Años";
         }else{
-            System.out.println("Usted tiene "+añoDelAño + " Años");
+            return "Usted tiene "+(añoDelAño-1) + " Años";
 
         }
     }
     public int calculeDia(String fecha){
-        String[] parte = getBirthday().split("/");
+        String[] parte = fecha.split("/");
         int dia =  Integer.parseInt(parte[0]);
         return dia;
     }
     public int calculeMes(String fecha){
-        String[] parte = getBirthday().split("/");
+        String[] parte = fecha.split("/");
         int mes = Integer.parseInt(parte[1]);
         return mes;
     }
     public int calculeAño(String fecha){
-        String[] parte = getBirthday().split("/");
+        String[] parte = fecha.split("/");
         int anio = Integer.parseInt(parte[2]);
         return anio;
     }
+
+
     //DISCLAIMER SI ALGUN DIA ME HAGO FAMOSO Y POR ESTAR ESTO EN PUBLICO ME FUNAN QUIERO ACLARAR QUE NO SE QUE DIVISION ME ESTA DANDO
     //Y NO SE SI DICE ALGO DE QUE ALTURA 190 CENTIMETROS PESO 40 ESTA CON SOBREPESO , FIN DEL DISCLAIMER LAMENTO SI OFENDI A ALGUIEN
     public String esPesoIdeal(){
