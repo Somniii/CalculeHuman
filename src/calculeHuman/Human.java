@@ -64,8 +64,26 @@ public class Human implements HumanFunctions{
         int anio = Integer.parseInt(parte[2]);
         return anio;
     }
+    //DISCLAIMER SI ALGUN DIA ME HAGO FAMOSO Y POR ESTAR ESTO EN PUBLICO ME FUNAN QUIERO ACLARAR QUE NO SE QUE DIVISION ME ESTA DANDO
+    //Y NO SE SI DICE ALGO DE QUE ALTURA 190 CENTIMETROS PESO 40 ESTA CON SOBREPESO , FIN DEL DISCLAIMER LAMENTO SI OFENDI A ALGUIEN
     public String esPesoIdeal(){
-        String respuesta = "";
+        String respuesta;
+        double numeroPromedio = getHeight()/getWeight();
+        System.out.println("El numero promedio fue " + numeroPromedio);
+        System.out.println("Tiene una altura de "+height+" cm y un peso de "+weight+" kilos");
+        if(1 >= numeroPromedio) {
+            respuesta = "sobrepeso, insalubre";
+        }
+        else if(1 < numeroPromedio && 1.5 >= numeroPromedio){
+            respuesta = "tiene peso extra ,recomendable bajar de peso";
+        }
+        else if(1.5 < numeroPromedio && 2.5 >= numeroPromedio){
+            respuesta = "Peso saludable";
+        }
+        else{
+            respuesta= "Peso bajo, insalubre";
+        }
+
         return respuesta;
     }
 }
